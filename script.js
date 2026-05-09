@@ -20,9 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Services
   const sGrid = document.getElementById('services-grid');
   D.services.forEach((s, i) => {
-    const items = s.items.map(x => `<li>${x}</li>`).join('');
-    sGrid.innerHTML += `<div class="service-card ${s.popular?'popular':''}" data-reveal style="transition-delay:${i*.08}s">${s.popular?'<div class="popular-badge">Most Popular</div>':''}<span class="service-icon">${s.icon}</span><h3>${s.name}</h3><p class="service-desc">${s.description}</p><ul class="service-items">${items}</ul><a href="#contact" class="btn btn-primary btn-sm">Get a Free Quote</a></div>`;
+    const rows = s.pricing.map(p => `<div class="price-row"><span class="price-type">${p.type}</span><span class="price-dots"></span><span class="price-val">${p.price}</span></div>`).join('');
+    sGrid.innerHTML += `<div class="service-card" data-reveal style="transition-delay:${i*.08}s"><span class="service-icon">${s.icon}</span><h3>${s.name}</h3>${s.subtitle?`<p class="service-subtitle">${s.subtitle}</p>`:''}<div class="price-rows">${rows}</div><a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a></div>`;
   });
+  if (D.extraNote) {
+    sGrid.insertAdjacentHTML('afterend', `<p class="extra-note" data-reveal>${D.extraNote}</p>`);
+  }
   // Before/After
   const baS = document.getElementById('ba-section');
   if (D.beforeAfter && D.beforeAfter.length) {

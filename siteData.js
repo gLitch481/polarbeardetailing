@@ -62,49 +62,53 @@ const SITE_DATA = {
   ],
 
   // ── Services ─────────────────────────────────────────────
-  // Add or remove services here. Each service shows up as a card.
+  // Vehicle-type based pricing with interior/exterior options
   services: [
     {
-      name: "Arctic Wash",
-      icon: "❄️",
-      description: "A thorough exterior refresh to restore your vehicle's shine.",
-      items: [
-        "Hand Wash with Premium Shampoo",
-        "Foam Cannon Pre-Soak",
-        "Degrease Wheels & Tires",
-        "Tire Dressing",
-        "Exterior Windows Cleaned",
-        "Air Freshener",
+      name: "Sedan",
+      icon: "🚗",
+      pricing: [
+        { type: "Interior Only", price: "$200 – $250" },
+        { type: "Interior & Exterior", price: "$250 – $300" },
       ],
     },
     {
-      name: "Interior Revival",
-      icon: "🧊",
-      description: "Deep clean your cabin for a fresh, like-new feel.",
-      items: [
-        "Comprehensive Interior Vacuum",
-        "Dashboard & Trim Wipe & Dress",
-        "Interior Windows & Mirrors",
-        "Door & Boot Jamb Clean",
-        "Steering Column Detail",
-        "Crack & Crevice Detail",
+      name: "Small SUV",
+      icon: "🚙",
+      subtitle: "5 seats",
+      pricing: [
+        { type: "Interior Only", price: "$220 – $280" },
+        { type: "Interior & Exterior", price: "$270 – $320" },
       ],
     },
     {
-      name: "Glacier Detail",
-      icon: "🏔️",
-      description: "The complete package — exterior shine meets interior freshness.",
-      items: [
-        "Everything in Arctic Wash",
-        "Everything in Interior Revival",
-        "Shampoo Carpets & Mats",
-        "Clean & Protect Seats (Fabric or Leather)",
-        "Leather Seat Conditioning",
-        "Deodorizer Treatment",
+      name: "Large SUV / Pickup",
+      icon: "🛻",
+      subtitle: "6–7 seats",
+      pricing: [
+        { type: "Interior Only", price: "$250 – $300" },
+        { type: "Interior & Exterior", price: "$300 – $350" },
       ],
-      popular: true,
+    },
+    {
+      name: "Minivan",
+      icon: "🚐",
+      pricing: [
+        { type: "Interior Only", price: "$250 – $350" },
+        { type: "Interior & Exterior", price: "$350 – $380" },
+      ],
+    },
+    {
+      name: "Commercial Truck",
+      icon: "🚚",
+      subtitle: "Cab only",
+      pricing: [
+        { type: "Interior Detailing", price: "$200 – $250" },
+      ],
     },
   ],
+
+  extraNote: "Heavily soiled vehicles may incur an additional fee.",
 
   // ── Gallery ──────────────────────────────────────────────
   // Before/After pairs for the comparison slider
