@@ -62,74 +62,61 @@ const SITE_DATA = {
   ],
 
   // ── Services ─────────────────────────────────────────────
-  // Vehicle-type based pricing with interior/exterior options
   services: [
     {
-      name: "Sedan",
-      icon: "🚗",
-      pricing: [
-        { type: "Interior Only", price: "$200 – $250" },
-        { type: "Interior & Exterior", price: "$250 – $300" },
+      name: "Interior Detail",
+      icon: "🧹",
+      description: "A deep clean that restores your cabin to like-new condition.",
+      items: [
+        "Full Vacuum & Debris Removal",
+        "Dashboard, Trim & Console Wipe-Down",
+        "Seats Cleaned & Conditioned",
+        "Windows & Mirrors Polished",
+        "Door Jambs & Crevice Detail",
       ],
     },
     {
-      name: "Small SUV",
-      icon: "🚙",
-      subtitle: "5 seats",
-      pricing: [
-        { type: "Interior Only", price: "$220 – $280" },
-        { type: "Interior & Exterior", price: "$270 – $320" },
+      name: "Exterior Detail",
+      icon: "✨",
+      description: "Hand wash and protection that brings back the showroom shine.",
+      items: [
+        "Foam Cannon Pre-Soak",
+        "Hand Wash with Premium Shampoo",
+        "Wheels, Tires & Wheel Wells",
+        "Tire Dressing",
+        "Exterior Windows Cleaned",
+        "Dry & Final Inspection",
       ],
     },
     {
-      name: "Large SUV / Pickup",
-      icon: "🛻",
-      subtitle: "6–7 seats",
-      pricing: [
-        { type: "Interior Only", price: "$250 – $300" },
-        { type: "Interior & Exterior", price: "$300 – $350" },
+      name: "Full Detail",
+      icon: "💎",
+      description: "The complete transformation — inside and out.",
+      items: [
+        "Everything in Interior Detail",
+        "Everything in Exterior Detail",
+        "Shampoo Carpets & Floor Mats",
+        "Leather Conditioning",
+        "Paint Decontamination",
+        "Spray Sealant Protection",
       ],
-    },
-    {
-      name: "Minivan",
-      icon: "🚐",
-      pricing: [
-        { type: "Interior Only", price: "$250 – $350" },
-        { type: "Interior & Exterior", price: "$350 – $380" },
-      ],
-    },
-    {
-      name: "Commercial Truck",
-      icon: "🚚",
-      subtitle: "Cab only",
-      pricing: [
-        { type: "Interior Detailing", price: "$200 – $250" },
-      ],
+      popular: true,
     },
   ],
 
-  extraNote: "Heavily soiled vehicles may incur an additional fee.",
+  pricingNote: "Every vehicle is different. We price based on size, condition, and scope of work — so you only pay for what you need. Our rates are competitive and fair. Text or call us for a quick, no-obligation quote.",
 
   // ── Gallery ──────────────────────────────────────────────
-  // Before/After pairs for the comparison slider
-  beforeAfter: [
-    {
-      before: "images/before1.png",
-      after: "images/after1.png",
-      caption: "Full Exterior Detail",
-    },
-    // Add more before/after pairs:
-    // { before: "images/before2.jpg", after: "images/after2.jpg", caption: "Interior Revival" },
-  ],
-
-  // Portfolio gallery images
+  // Items with a `before` field will open a before/after comparison slider.
+  // Items without `before` just open the image in a regular lightbox.
   gallery: [
-    { src: "images/hero-car.png", caption: "Exterior Detail" },
-    { src: "images/gallery-interior.png", caption: "Interior Detail" },
-    { src: "images/gallery-ceramic.png", caption: "Ceramic Coating" },
-    { src: "images/after1.png", caption: "Paint Correction" },
+    { before: "images/before1.png", after: "images/after1.png", caption: "Full Exterior Detail" },
+    { before: "images/before-interior.png", after: "images/gallery-interior.png", caption: "Interior Detail" },
+    { before: "images/before-ceramic.png", after: "images/gallery-ceramic.png", caption: "Ceramic Coating" },
+    { before: "images/before-exterior.png", after: "images/hero-car.png", caption: "Exterior Shine" },
     // Add more:
-    // { src: "images/your-photo.jpg", caption: "Description" },
+    // { before: "images/before2.jpg", after: "images/after2.jpg", caption: "Interior Revival" },
+    // { after: "images/your-photo.jpg", caption: "Description" },
   ],
 
   // ── Reviews ──────────────────────────────────────────────

@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const D = SITE_DATA;
   // Nav
   document.getElementById('nav-logo').innerHTML = `<img src="${D.business.logo}" alt="${D.business.name}"><span>${D.business.name}</span>`;
-  // Hero bg
-  document.getElementById('hero-bg').style.backgroundImage = `url('${D.hero.heroImage}')`;
+  // Hero
   document.getElementById('hero-call').href = `tel:${D.business.phone}`;
   // Stats
   const sg = document.getElementById('stats-grid');
@@ -20,22 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Services
   const sGrid = document.getElementById('services-grid');
   D.services.forEach((s, i) => {
-    const rows = s.pricing.map(p => `<div class="price-row"><span class="price-type">${p.type}</span><span class="price-dots"></span><span class="price-val">${p.price}</span></div>`).join('');
-    sGrid.innerHTML += `<div class="service-card" data-reveal style="transition-delay:${i*.08}s"><span class="service-icon">${s.icon}</span><h3>${s.name}</h3>${s.subtitle?`<p class="service-subtitle">${s.subtitle}</p>`:''}<div class="price-rows">${rows}</div><a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a></div>`;
+    const items = s.items.map(x => `<li>${x}</li>`).join('');
+    sGrid.innerHTML += `<div class="service-card ${s.popular?'popular':''}" data-reveal style="transition-delay:${i*.08}s">${s.popular?'<div class="popular-badge">Most Popular</div>':''}<span class="service-icon">${s.icon}</span><h3>${s.name}</h3><p class="service-desc">${s.description}</p><ul class="service-items">${items}</ul><a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a></div>`;
   });
-  if (D.extraNote) {
-    sGrid.insertAdjacentHTML('afterend', `<p class="extra-note" data-reveal>${D.extraNote}</p>`);
+  if (D.pricingNote) {
+    sGrid.insertAdjacentHTML('afterend', `<div class="pricing-note" data-reveal><p>${D.pricingNote}</p><a href="#contact" class="btn btn-primary" style="margin-top:20px">Get Your Free Quote →</a></div>`);
   }
-  // Before/After
-  const baS = document.getElementById('ba-section');
-  if (D.beforeAfter && D.beforeAfter.length) {
-    const ba = D.beforeAfter[0];
-    baS.innerHTML = `<div class="ba-container" id="ba-c"><img src="${ba.after}" alt="After"><div class="ba-overlay" id="ba-o"><img src="${ba.before}" alt="Before"></div><div class="ba-slider" id="ba-s"><div class="ba-handle">◄►</div></div><span class="ba-label before">Before</span><span class="ba-label after">After</span></div>`;
-    initBA();
-  }
-  // Gallery
+  // Gallery (unified: items with `before` get B/A slider in lightbox)
   const gGrid = document.getElementById('gallery-grid');
-  D.gallery.forEach((g, i) => { gGrid.innerHTML += `<div class="gallery-item" data-src="${g.src}" data-reveal style="transition-delay:${i*.1}s"><img src="${g.src}" alt="${g.caption}" loading="lazy"><div class="overlay"><span>${g.caption}</span></div></div>`; });
+  D.gallery.forEach((g, i) => {
+    const hasBa = g.before ? 'data-before="'+g.before+'"' : '';
+    const badge = g.before ? '<span class="ba-badge">Before & After</span>' : '';
+    gGrid.innerHTML += `<div class="gallery-item" data-after="${g.after}" ${hasBa} data-reveal style="transition-delay:${i*.1}s"><img src="${g.after}" alt="${g.caption}" loading="lazy"><div class="overlay">${badge}<span>${g.caption}</span></div></div>`;
+  });
   // Reviews
   const rTrack = document.getElementById('reviews-track');
   D.reviews.forEach(r => {
@@ -75,16 +71,66 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating();
 });
 
-function initBA() {
-  const c=document.getElementById('ba-c'); if(!c) return;
-  const o=document.getElementById('ba-o'), s=document.getElementById('ba-s');
-  let drag=false;
-  const set=x=>{const r=c.getBoundingClientRect();let p=((x-r.left)/r.width)*100;p=Math.max(2,Math.min(98,p));o.style.width=p+'%';s.style.left=p+'%';};
-  s.addEventListener('mousedown',()=>drag=true); s.addEventListener('touchstart',()=>drag=true);
-  document.addEventListener('mouseup',()=>drag=false); document.addEventListener('touchend',()=>drag=false);
-  c.addEventListener('mousemove',e=>{if(drag)set(e.clientX);}); c.addEventListener('touchmove',e=>{if(drag)set(e.touches[0].clientX);});
-  c.addEventListener('click',e=>set(e.clientX));
-  setTimeout(()=>{const r=c.getBoundingClientRect();set(r.left+r.width*.5);},300);
+function initLightbox() {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const baC = document.getElementById('ba-lightbox');
+  const baOverlay = document.getElementById('ba-lb-overlay');
+  const baSlider = document.getElementById('ba-lb-slider');
+  const baAfter = document.getElementById('ba-lb-after');
+  const baBefore = document.getElementById('ba-lb-before');
+  let drag = false;
+
+  function closeLb() { lb.classList.remove('active'); drag = false; }
+
+  function setSlider(x) {
+    const r = baC.getBoundingClientRect();
+    let p = ((x - r.left) / r.width) * 100;
+    p = Math.max(2, Math.min(98, p));
+    baOverlay.style.width = p + '%';
+    baSlider.style.left = p + '%';
+  }
+
+  // Open lightbox on gallery click
+  document.addEventListener('click', e => {
+    const it = e.target.closest('.gallery-item');
+    if (!it) return;
+    const before = it.dataset.before;
+    const after = it.dataset.after;
+    if (before) {
+      // B/A mode
+      img.style.display = 'none';
+      baC.style.display = 'block';
+      baAfter.src = after;
+      baBefore.src = before;
+      lb.classList.add('active');
+      // Reset to 50%
+      setTimeout(() => {
+        const r = baC.getBoundingClientRect();
+        setSlider(r.left + r.width * 0.5);
+      }, 50);
+    } else {
+      // Simple image mode
+      baC.style.display = 'none';
+      img.style.display = 'block';
+      img.src = after;
+      lb.classList.add('active');
+    }
+  });
+
+  // Slider drag
+  baSlider.addEventListener('mousedown', () => drag = true);
+  baSlider.addEventListener('touchstart', () => drag = true);
+  document.addEventListener('mouseup', () => drag = false);
+  document.addEventListener('touchend', () => drag = false);
+  baC.addEventListener('mousemove', e => { if (drag) setSlider(e.clientX); });
+  baC.addEventListener('touchmove', e => { if (drag) setSlider(e.touches[0].clientX); });
+  baC.addEventListener('click', e => { if (e.target.closest('.ba-lb-slider')) return; setSlider(e.clientX); });
+
+  // Close
+  document.getElementById('lightbox-close').onclick = closeLb;
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 }
 
 function initCarousel() {
@@ -132,10 +178,3 @@ function initParticles() {
   resize();draw();window.addEventListener('resize',resize);
 }
 
-function initLightbox() {
-  const lb=document.getElementById('lightbox'),img=document.getElementById('lightbox-img');
-  document.addEventListener('click',e=>{const it=e.target.closest('.gallery-item');if(it){img.src=it.dataset.src;lb.classList.add('active');}});
-  document.getElementById('lightbox-close').onclick=()=>lb.classList.remove('active');
-  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('active');});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('active');});
-}

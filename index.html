@@ -31,7 +31,9 @@
 
   <!-- HERO — fullscreen with background image -->
   <section class="hero" id="hero">
-    <div class="hero-bg" id="hero-bg"></div>
+    <video class="hero-bg" id="hero-bg" autoplay muted loop playsinline>
+      <source src="images/hero-video.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
     <canvas class="hero-particles" id="particles-canvas"></canvas>
     <div class="hero-inner">
@@ -93,9 +95,9 @@
   <section class="section" id="services">
     <div class="container">
       <div class="section-header" data-reveal>
-        <div class="section-label">Pricing</div>
-        <div class="section-title">Transparent pricing<br>by vehicle type.</div>
-        <p class="section-desc">Interior, exterior, or both — pick what your car needs. Prices vary by size and condition.</p>
+        <div class="section-label">Our Services</div>
+        <div class="section-title">What we do<br>for your car.</div>
+        <p class="section-desc">Choose interior, exterior, or the full package. Every detail is tailored to your vehicle's size and condition.</p>
       </div>
       <div class="services-grid" id="services-grid"></div>
     </div>
@@ -116,11 +118,10 @@
   <section class="section section-ice" id="gallery">
     <div class="container">
       <div class="section-header" data-reveal>
-        <div class="section-label">Before & After</div>
+        <div class="section-label">Our Work</div>
         <div class="section-title">Real results.<br>Real transformations.</div>
-        <p class="section-desc">Drag the slider to reveal the before and after.</p>
+        <p class="section-desc">Tap any photo to see the before & after comparison.</p>
       </div>
-      <div id="ba-section" data-reveal="scale"></div>
       <div class="gallery-grid" id="gallery-grid"></div>
     </div>
   </section>
@@ -208,6 +209,17 @@
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightbox-close">&times;</button>
     <img id="lightbox-img" src="" alt="">
+    <div class="ba-lightbox-container" id="ba-lightbox">
+      <img class="ba-lb-after" id="ba-lb-after" src="" alt="After">
+      <div class="ba-lb-overlay" id="ba-lb-overlay">
+        <img class="ba-lb-before" id="ba-lb-before" src="" alt="Before">
+      </div>
+      <div class="ba-lb-slider" id="ba-lb-slider">
+        <div class="ba-lb-handle">◄►</div>
+      </div>
+      <span class="ba-lb-label ba-lb-before-label">Before</span>
+      <span class="ba-lb-label ba-lb-after-label">After</span>
+    </div>
   </div>
 
 </body>
