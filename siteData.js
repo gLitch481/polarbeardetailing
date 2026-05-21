@@ -173,7 +173,7 @@ const SITE_DATA = {
     },
     {
       q: "How do I pay for the service?",
-      a: "We accept Cash, Venmo, Zelle, and major Credit Cards. Payment is only due after the job is completed and you have fully inspected your vehicle and approved our work."
+      a: "We accept Cash, Venmo, and Zelle. Payment is only due after the job is completed and you have fully inspected your vehicle and approved our work."
     }
   ],
 
