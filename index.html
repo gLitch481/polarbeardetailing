@@ -120,8 +120,24 @@
       <div class="section-header" data-reveal>
         <div class="section-label">Our Work</div>
         <div class="section-title">Real results.<br>Real transformations.</div>
-        <p class="section-desc">Tap any photo to see the before & after comparison.</p>
+        <p class="section-desc">Drag the slider below to see the transformation of a full exterior detail. Tap any photo in the gallery for more comparisons.</p>
       </div>
+
+      <!-- Featured Inline Before/After Slider -->
+      <div class="ba-featured-wrapper" data-reveal style="margin-bottom: 56px;">
+        <div class="ba-container" id="inline-ba">
+          <img class="ba-after" src="images/after1.png" alt="After Full Detail">
+          <div class="ba-overlay" id="inline-ba-overlay" style="width: 50%;">
+            <img class="ba-before" src="images/before1.png" alt="Before Full Detail">
+          </div>
+          <div class="ba-slider" id="inline-ba-slider" style="left: 50%;">
+            <div class="ba-handle">◄►</div>
+          </div>
+          <span class="ba-label before">Before</span>
+          <span class="ba-label after">After</span>
+        </div>
+      </div>
+
       <div class="gallery-grid" id="gallery-grid"></div>
     </div>
   </section>
@@ -187,7 +203,11 @@
             <div class="form-group"><label for="f-name">Name</label><input type="text" id="f-name" placeholder="John Doe" required></div>
             <div class="form-group"><label for="f-phone">Phone</label><input type="tel" id="f-phone" placeholder="(555) 123-4567" required></div>
           </div>
-          <div class="form-group"><label for="f-service">Service</label><select id="f-service"></select></div>
+          <div class="form-group">
+            <label for="f-service">Service</label>
+            <select id="f-service" style="display: none;"></select>
+            <div class="form-services-cards" id="form-services-cards"></div>
+          </div>
           <div class="form-group"><label for="f-msg">Message</label><textarea id="f-msg" placeholder="Tell us about your vehicle..."></textarea></div>
           <button type="submit" class="btn btn-primary">Send Request ❄️</button>
         </form>

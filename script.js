@@ -83,6 +83,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (D.business.email) cm.innerHTML += `<a href="mailto:${D.business.email}" class="contact-method"><div class="cm-icon">✉️</div><div><div class="cm-label">Email</div><div class="cm-value">${D.business.email}</div></div></a>`;
   const fSvc = document.getElementById('f-service');
   fSvc.innerHTML = '<option value="">Select a service...</option>' + D.services.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+
+  // Interactive Service Cards
+  const cardsContainer = document.getElementById('form-services-cards');
+  if (cardsContainer) {
+    D.services.forEach(s => {
+      cardsContainer.innerHTML += `
+        <div class="form-service-card" data-service="${s.name}">
+          <span class="fsc-icon">${s.icon}</span>
+          <span class="fsc-name">${s.name}</span>
+        </div>
+      `;
+    });
+
+    cardsContainer.addEventListener('click', e => {
+      const card = e.target.closest('.form-service-card');
+      if (!card) return;
+      const isSelected = card.classList.contains('active');
+      cardsContainer.querySelectorAll('.form-service-card').forEach(c => c.classList.remove('active'));
+      if (!isSelected) {
+        card.classList.add('active');
+        fSvc.value = card.dataset.service;
+      } else {
+        fSvc.value = "";
+      }
+    });
+  }
+
   document.getElementById('contact-form').addEventListener('submit', e => {
     e.preventDefault();
     const n=document.getElementById('f-name').value, svc=document.getElementById('f-service').value, msg=document.getElementById('f-msg').value;
@@ -101,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('float-call').href = `tel:${D.business.phone}`;
   document.getElementById('float-insta').href = D.business.instagramUrl;
   // Init
-  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating();
+  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating(); initInlineSlider();
 });
 
 function initLightbox() {
@@ -194,8 +221,14 @@ function initStats() {
 function initNav() {
   const nav=document.getElementById('navbar'),ham=document.getElementById('hamburger'),menu=document.getElementById('mobile-menu');
   window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
-  ham.addEventListener('click',()=>menu.classList.toggle('active'));
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('active')));
+  ham.addEventListener('click',()=>{
+    menu.classList.toggle('active');
+    ham.classList.toggle('active');
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('active');
+    ham.classList.remove('active');
+  }));
 }
 
 function initFloating() {
@@ -204,10 +237,44 @@ function initFloating() {
 }
 
 function initParticles() {
-  const canvas=document.getElementById('particles-canvas'); if(!canvas) return;
-  const ctx=canvas.getContext('2d'); let parts=[];
-  function resize(){const hero=document.getElementById('hero');canvas.width=hero.offsetWidth;canvas.height=hero.offsetHeight;parts=Array.from({length:Math.floor(canvas.width/30)},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+.5,sy:Math.random()*.3+.1,sx:Math.random()*.2-.1,o:Math.random()*.3+.05}));}
-  function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);parts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(168,216,234,${p.o})`;ctx.fill();p.y+=p.sy;p.x+=p.sx;if(p.y>canvas.height){p.y=-5;p.x=Math.random()*canvas.width;}if(p.x>canvas.width)p.x=0;if(p.x<0)p.x=canvas.width;});requestAnimationFrame(draw);}
-  resize();draw();window.addEventListener('resize',resize);
+  const c = document.getElementById('particles-canvas'); if (!c) return;
+  const ctx = c.getContext('2d');
+  c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight;
+  let pts = Array.from({ length: 30 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 2 + 1, s: Math.random() * 0.002 + 0.001 }));
+  (function loop() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+    pts.forEach(p => { p.y -= p.s; if (p.y < 0) { p.y = 1; p.x = Math.random(); } ctx.beginPath(); ctx.arc(p.x * c.width, p.y * c.height, p.r, 0, Math.PI * 2); ctx.fill(); });
+    requestAnimationFrame(loop);
+  })();
 }
 
+function initInlineSlider() {
+  const baC = document.getElementById('inline-ba');
+  if (!baC) return;
+  const baOverlay = document.getElementById('inline-ba-overlay');
+  const baSlider = document.getElementById('inline-ba-slider');
+  let drag = false;
+
+  function setSlider(x) {
+    const r = baC.getBoundingClientRect();
+    let p = ((x - r.left) / r.width) * 100;
+    p = Math.max(2, Math.min(98, p));
+    baOverlay.style.width = p + '%';
+    baSlider.style.left = p + '%';
+  }
+
+  baSlider.addEventListener('mousedown', () => drag = true);
+  baSlider.addEventListener('touchstart', () => drag = true);
+  document.addEventListener('mouseup', () => drag = false);
+  document.addEventListener('touchend', () => drag = false);
+  baC.addEventListener('mousemove', e => { if (drag) setSlider(e.clientX); });
+  baC.addEventListener('touchmove', e => { if (drag) setSlider(e.touches[0].clientX); });
+  baC.addEventListener('click', e => { if (e.target.closest('#inline-ba-slider')) return; setSlider(e.clientX); });
+
+  // Reset to 50% on load after client rect is ready
+  setTimeout(() => {
+    const r = baC.getBoundingClientRect();
+    setSlider(r.left + r.width * 0.5);
+  }, 100);
+}
