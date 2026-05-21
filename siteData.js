@@ -25,7 +25,7 @@ const SITE_DATA = {
   hero: {
     title: "Premium Mobile Detailing",
     subtitle: "Arctic-Clean Results, At Your Door",
-    description: "Professional mobile auto detailing serving Marlboro, Old Bridge & surrounding areas. We bring the shine to you.",
+    description: "Professional mobile auto detailing serving Marlboro & surrounding areas. We bring the shine to you.",
     ctaText: "Schedule a Visit",
     heroImage: "images/hero-car.png",
   },
@@ -136,7 +136,7 @@ const SITE_DATA = {
     },
     {
       name: "David L.",
-      location: "Middletown, NJ",
+      location: "Manalapan, NJ",
       stars: 5,
       text: "Got the ceramic coating done and wow — my car literally repels water now. The team was on time, explained everything, and the results speak for themselves. 10/10.",
     },
@@ -152,9 +152,9 @@ const SITE_DATA = {
 
   // ── Service Areas ────────────────────────────────────────
   serviceAreas: [
-    { area: "Marlboro & Old Bridge", detail: "Marlboro, Morganville, Old Bridge, Manalapan & nearby", primary: true },
-    { area: "Bayshore Area", detail: "Matawan, Aberdeen, Holmdel, Hazlet & nearby" },
-    { area: "Surrounding Area", detail: "Sayreville, Parlin, East Brunswick & nearby" },
+    { area: "Marlboro & Manalapan", detail: "Marlboro, Morganville, Manalapan, Englishtown & nearby", primary: true },
+    { area: "Colts Neck & Freehold", detail: "Colts Neck, Freehold Township, Freehold Borough & nearby" },
+    { area: "Surrounding Area", detail: "Howell, Millstone, Jackson & nearby" },
   ],
 
   // ── FAQ ──────────────────────────────────────────────────
@@ -178,11 +178,11 @@ const SITE_DATA = {
   ],
 
   // ── SEO Content ──────────────────────────────────────────
-  seoText: "Looking for the best mobile auto detailing in Marlboro or Old Bridge, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Morganville, Matawan, Holmdel, Sayreville, or surrounding Middlesex and Monmouth County towns, we make car care effortless. Contact us today for a free estimate!",
+  seoText: "Looking for the best mobile auto detailing in Marlboro, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Morganville, Manalapan, Freehold, Colts Neck, or surrounding Monmouth County towns, we make car care effortless. Contact us today for a free estimate!",
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
     copyright: "© 2026 Polar Bear Detailing. All rights reserved.",
-    tagline: "Marlboro & Old Bridge's Premier Mobile Auto Detailing",
+    tagline: "Marlboro & Surrounding Areas' Premier Mobile Auto Detailing",
   },
 };
