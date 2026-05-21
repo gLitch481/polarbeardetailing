@@ -195,7 +195,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .gallery-item:hover .overlay{opacity:1}
 .gallery-item .overlay span{color:#fff;font-weight:600;transform:translateY(10px);transition:transform .5s var(--ease)}
 .gallery-item:hover .overlay span{transform:translateY(0)}
-.reviews-wrapper{overflow:hidden;margin:0 -32px;padding:0 32px}
+.reviews-wrapper{overflow:hidden;margin:-16px -32px;padding:16px 32px}
 .reviews-track{display:flex;gap:24px;transition:transform .7s var(--ease)}
 .review-card{flex:0 0 380px;background:#fff;border:1px solid rgba(77,168,218,.08);border-radius:var(--radius);padding:36px 28px;position:relative}
 .review-card::before{content:'\201C';position:absolute;top:12px;right:20px;font-size:5rem;color:var(--ice2);font-family:Georgia,serif;line-height:1}
