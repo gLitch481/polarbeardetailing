@@ -44,6 +44,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const aGrid = document.getElementById('areas-grid');
   const icons = ['🏙️','🌉','🏡'];
   D.serviceAreas.forEach((a, i) => { aGrid.innerHTML += `<div class="area-card ${a.primary?'primary':''}" data-reveal style="transition-delay:${i*.1}s"><div class="area-icon">${icons[i]||'📍'}</div><h3>${a.area}</h3><p>${a.detail}</p></div>`; });
+
+  // SEO Block
+  const seoBlock = document.getElementById('seo-block');
+  if (seoBlock && D.seoText) {
+    seoBlock.innerHTML = `<p>${D.seoText}</p>`;
+  }
+
+  // FAQ Accordion
+  const faqList = document.getElementById('faq-list');
+  if (faqList && D.faq) {
+    D.faq.forEach((item, i) => {
+      faqList.innerHTML += `
+        <div class="faq-item" data-reveal style="transition-delay:${i*.08}s">
+          <button class="faq-question">
+            <span>${item.q}</span>
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>${item.a}</p>
+          </div>
+        </div>
+      `;
+    });
+
+    faqList.addEventListener('click', e => {
+      const btn = e.target.closest('.faq-question');
+      if (!btn) return;
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
+      faqList.querySelectorAll('.faq-item').forEach(x => x.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  }
   // Contact
   const cm = document.getElementById('contact-methods');
   cm.innerHTML = `<a href="tel:${D.business.phone}" class="contact-method"><div class="cm-icon">📞</div><div><div class="cm-label">Call Us</div><div class="cm-value">${D.business.phoneFormatted}</div></div></a><a href="${D.business.instagramUrl}" target="_blank" class="contact-method"><div class="cm-icon">📸</div><div><div class="cm-label">Instagram</div><div class="cm-value">@${D.business.instagram}</div></div></a>`;

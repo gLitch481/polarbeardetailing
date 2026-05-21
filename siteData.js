@@ -25,7 +25,7 @@ const SITE_DATA = {
   hero: {
     title: "Premium Mobile Detailing",
     subtitle: "Arctic-Clean Results, At Your Door",
-    description: "Professional mobile auto detailing serving Staten Island, Brooklyn & Northern New Jersey. We bring the shine to you.",
+    description: "Professional mobile auto detailing serving Marlboro, Old Bridge & surrounding areas. We bring the shine to you.",
     ctaText: "Schedule a Visit",
     heroImage: "images/hero-car.png",
   },
@@ -40,10 +40,10 @@ const SITE_DATA = {
 
   // ── Statistics (animated counters) ───────────────────────
   stats: [
-    { number: 500, suffix: "+", label: "Cars Detailed" },
     { number: 5, suffix: "★", label: "Average Rating" },
-    { number: 50, suffix: "+", label: "Neighborhoods" },
     { number: 100, suffix: "%", label: "Satisfaction" },
+    { number: 7, suffix: "/7", label: "Days Available" },
+    { number: 1, suffix: "", label: "Free Quotes" },
   ],
 
   // ── Why Choose Us ───────────────────────────────────────
@@ -124,25 +124,25 @@ const SITE_DATA = {
   reviews: [
     {
       name: "Michael R.",
-      location: "Staten Island, NY",
+      location: "Marlboro, NJ",
       stars: 5,
       text: "Incredible job on my BMW! The paint looks better than when I bought it. Super convenient that they come right to my driveway. Will definitely be a regular customer.",
     },
     {
       name: "Sarah K.",
-      location: "Brooklyn, NY",
+      location: "Freehold, NJ",
       stars: 5,
       text: "I've tried several detailers in the area and Polar Bear is by far the best. They're thorough, professional, and my interior has never looked this clean. Highly recommend!",
     },
     {
       name: "David L.",
-      location: "Bayonne, NJ",
+      location: "Middletown, NJ",
       stars: 5,
       text: "Got the ceramic coating done and wow — my car literally repels water now. The team was on time, explained everything, and the results speak for themselves. 10/10.",
     },
     {
       name: "Jennifer M.",
-      location: "Staten Island, NY",
+      location: "Colts Neck, NJ",
       stars: 5,
       text: "As a busy mom, I love that they come to me. My minivan went from chaos to showroom-clean. The kids couldn't believe it was the same car! Amazing service.",
     },
@@ -152,14 +152,37 @@ const SITE_DATA = {
 
   // ── Service Areas ────────────────────────────────────────
   serviceAreas: [
-    { area: "Staten Island", detail: "All neighborhoods", primary: true },
-    { area: "Brooklyn", detail: "South Brooklyn & Bay Ridge area" },
-    { area: "Northern NJ", detail: "Bayonne, Jersey City & nearby" },
+    { area: "Marlboro & Old Bridge", detail: "Marlboro, Morganville, Old Bridge, Manalapan & nearby", primary: true },
+    { area: "Bayshore Area", detail: "Matawan, Aberdeen, Holmdel, Hazlet & nearby" },
+    { area: "Surrounding Area", detail: "Sayreville, Parlin, East Brunswick & nearby" },
   ],
+
+  // ── FAQ ──────────────────────────────────────────────────
+  faq: [
+    {
+      q: "Do you need access to water and electricity?",
+      a: "Yes, we require access to a standard outdoor water faucet (spigot) and a regular 120V electrical outlet within range of your driveway. We bring our own professional-grade hoses, extension cords, and equipment, so all you need to provide is the access!"
+    },
+    {
+      q: "How long does a detailing service take?",
+      a: "It depends on the package and the vehicle's size. An Interior Detail usually takes 2 to 3 hours, an Exterior Detail takes about 1.5 to 2 hours, and a Full Detail can take 3 to 5 hours. We take our time to ensure perfection."
+    },
+    {
+      q: "What is your weather policy?",
+      a: "Since we operate outdoors, heavy rain or freezing temperatures may prevent us from doing exterior work. If the weather is bad, we will contact you to reschedule for the next available slot at no extra charge, or we can focus on interior detailing if you have a covered garage."
+    },
+    {
+      q: "How do I pay for the service?",
+      a: "We accept Cash, Venmo, Zelle, and major Credit Cards. Payment is only due after the job is completed and you have fully inspected your vehicle and approved our work."
+    }
+  ],
+
+  // ── SEO Content ──────────────────────────────────────────
+  seoText: "Looking for the best mobile auto detailing in Marlboro or Old Bridge, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Morganville, Matawan, Holmdel, Sayreville, or surrounding Middlesex and Monmouth County towns, we make car care effortless. Contact us today for a free estimate!",
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
     copyright: "© 2026 Polar Bear Detailing. All rights reserved.",
-    tagline: "Staten Island's Premier Mobile Auto Detailing",
+    tagline: "Marlboro & Old Bridge's Premier Mobile Auto Detailing",
   },
 };
