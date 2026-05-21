@@ -224,10 +224,14 @@ function initNav() {
   ham.addEventListener('click',()=>{
     menu.classList.toggle('active');
     ham.classList.toggle('active');
+    nav.classList.toggle('menu-active');
+    document.body.classList.toggle('no-scroll');
   });
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
     menu.classList.remove('active');
     ham.classList.remove('active');
+    nav.classList.remove('menu-active');
+    document.body.classList.remove('no-scroll');
   }));
 }
 
