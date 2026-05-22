@@ -25,7 +25,7 @@ const SITE_DATA = {
   hero: {
     title: "Premium Mobile Detailing",
     subtitle: "Arctic-Clean Results, At Your Door",
-    description: "Professional mobile auto detailing serving Marlboro, Old Bridge & surrounding areas. We bring the shine to you.",
+    description: "Professional mobile auto detailing serving Staten Island, NY to Marlboro, NJ & surrounding areas. We bring the shine to you.",
     ctaText: "Schedule a Visit",
     heroImage: "images/hero-car.png",
   },
@@ -136,7 +136,7 @@ const SITE_DATA = {
     },
     {
       name: "David L.",
-      location: "Sayreville, NJ",
+      location: "Staten Island, NY",
       stars: 5,
       text: "Got the ceramic coating done and wow — my car literally repels water now. The team was on time, explained everything, and the results speak for themselves. 10/10.",
     },
@@ -152,9 +152,9 @@ const SITE_DATA = {
 
   // ── Service Areas ────────────────────────────────────────
   serviceAreas: [
-    { area: "Marlboro & Old Bridge", detail: "Marlboro, Morganville, Old Bridge & nearby", primary: true },
-    { area: "Bayshore Area", detail: "Matawan, Aberdeen, Holmdel, Hazlet & nearby" },
-    { area: "Middlesex Route", detail: "Sayreville, Parlin, East Brunswick & nearby" },
+    { area: "Staten Island, NY", detail: "Serving all of Staten Island & nearby neighborhoods", primary: true },
+    { area: "Marlboro & Old Bridge", detail: "Marlboro, Morganville, Old Bridge & surrounding areas" },
+    { area: "Middlesex & Bayshore", detail: "Sayreville, East Brunswick, Matawan, Aberdeen, Holmdel, Hazlet & nearby along our route" },
   ],
 
   // ── FAQ ──────────────────────────────────────────────────
@@ -178,11 +178,11 @@ const SITE_DATA = {
   ],
 
   // ── SEO Content ──────────────────────────────────────────
-  seoText: "Looking for the best mobile auto detailing in Marlboro or Old Bridge, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Morganville, Matawan, Holmdel, Sayreville, or surrounding Middlesex and Monmouth County towns, we make car care effortless. Contact us today for a free estimate!",
+  seoText: "Looking for the best mobile auto detailing from Staten Island, NY to Marlboro, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Staten Island, Sayreville, East Brunswick, Old Bridge, Matawan, Holmdel, Morganville, or Marlboro, we make car care effortless. Contact us today for a free estimate!",
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
     copyright: "© 2026 Polar Bear Detailing. All rights reserved.",
-    tagline: "Marlboro & Old Bridge's Premier Mobile Auto Detailing",
+    tagline: "Premier Mobile Auto Detailing from Staten Island to Marlboro",
   },
 };
