@@ -485,3 +485,198 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   VISUAL ENHANCEMENTS
+   ═══════════════════════════════════════════════════ */
+
+/* ── 1. Splash Screen ─────────────────────────── */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.splash-screen.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.splash-content {
+  text-align: center;
+  animation: splashIn 0.8s var(--ease) both;
+}
+.splash-logo-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  animation: splashPulse 2s ease-in-out infinite;
+}
+.splash-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+.splash-bar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.splash-bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--glacier-l), var(--glacier));
+  border-radius: 3px;
+  animation: splashLoad 1.5s var(--ease) forwards;
+}
+@keyframes splashIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes splashPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(77,168,218,0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(77,168,218,0.2); }
+}
+@keyframes splashLoad {
+  to { width: 100%; }
+}
+
+/* ── 2. Scroll Progress Bar ────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--glacier-l), var(--glacier), #43b88c);
+  z-index: 9998;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 8px rgba(77,168,218,0.5);
+}
+
+/* ── 3. Wave Dividers ──────────────────────────── */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+@media (max-width: 768px) {
+  .wave-divider svg { height: 40px; }
+}
+
+/* ── 4. Gradient Text ──────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--glacier), #2d8abf, #43b88c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-light {
+  background: linear-gradient(135deg, var(--glacier-l), #43b88c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 5. Aurora Animated Borders ────────────────── */
+@keyframes auroraFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.service-card:hover::after {
+  background-size: 300% 300%;
+  animation: auroraFlow 3s ease-in-out infinite;
+}
+.service-card.popular::after {
+  background-size: 300% 300%;
+  animation: auroraFlow 4s ease-in-out infinite;
+}
+
+/* ── 6. Improved Area Cards ────────────────────── */
+.area-card {
+  position: relative;
+  overflow: hidden;
+}
+.area-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(77,168,218,0.04) 0%, transparent 70%);
+  transition: all 0.6s var(--ease);
+  pointer-events: none;
+}
+.area-card:hover::before {
+  background: radial-gradient(circle, rgba(77,168,218,0.08) 0%, transparent 60%);
+  transform: scale(1.2);
+}
+.area-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--ice), var(--ice2));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s var(--ease);
+}
+.area-card:hover .area-icon {
+  background: linear-gradient(135deg, var(--glacier-l), var(--glacier));
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(77,168,218,0.2);
+}
+
+/* ── 7. Gallery 3D Tilt ────────────────────────── */
+.gallery-item {
+  transform-style: preserve-3d;
+}
+.gallery-item:hover {
+  box-shadow: 0 20px 40px rgba(15,25,35,0.2);
+}
+
+/* ── 8. Parallax Background ────────────────────── */
+.parallax-bg {
+  position: absolute;
+  inset: -30% -10%;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(77,168,218,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(67,184,140,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  will-change: transform;
+  z-index: 0;
+}
+
+/* ── 9. Stat Counter Bounce ────────────────────── */
+.stat-bounce {
+  animation: statBounce 0.6s var(--ease);
+}
+@keyframes statBounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.2); }
+  50% { transform: scale(0.95); }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+

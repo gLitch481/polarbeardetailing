@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('float-call').href = `tel:${D.business.phone}`;
   document.getElementById('float-insta').href = D.business.instagramUrl;
   // Init
-  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating(); initInlineSlider();
+  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating(); initInlineSlider(); initSplash(); initScrollProgress(); initWaves(); initParallax(); initTilt();
 });
 
 function initLightbox() {
@@ -214,7 +214,7 @@ function initReveal() {
 
 function initStats() {
   let done=false;
-  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!done){done=true;document.querySelectorAll('.stat-number').forEach(el=>{const t=+el.dataset.target,s=el.dataset.suffix,dur=2000,st=performance.now();(function up(now){const p=Math.min((now-st)/dur,1),ease=1-Math.pow(1-p,4);el.textContent=Math.floor(ease*t)+s;if(p<1)requestAnimationFrame(up);})(st);});}});},{threshold:.5});
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!done){done=true;document.querySelectorAll('.stat-number').forEach(el=>{const t=+el.dataset.target,s=el.dataset.suffix,dur=2000,st=performance.now();(function up(now){const p=Math.min((now-st)/dur,1),ease=1-Math.pow(1-p,4);el.textContent=Math.floor(ease*t)+s;if(p<1)requestAnimationFrame(up);else el.classList.add('stat-bounce');})(st);});}});},{threshold:.5});
   const sec=document.getElementById('stats-section');if(sec)obs.observe(sec);
 }
 
@@ -282,3 +282,87 @@ function initInlineSlider() {
     setSlider(r.left + r.width * 0.5);
   }, 100);
 }
+
+// ── Splash Screen ────────────────────────────────
+function initSplash() {
+  const splash = document.getElementById('splash-screen');
+  if (!splash) return;
+  document.body.classList.add('no-scroll');
+  setTimeout(() => {
+    splash.classList.add('hidden');
+    document.body.classList.remove('no-scroll');
+    setTimeout(() => splash.remove(), 800);
+  }, 2000);
+}
+
+// ── Scroll Progress Bar ──────────────────────────
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const progress = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = progress + '%';
+  }, { passive: true });
+}
+
+// ── Wave Dividers ────────────────────────────────
+function initWaves() {
+  const shapes = [
+    'M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z',
+    'M0,20 C240,55 480,55 720,25 C960,-5 1200,10 1440,40 L1440,0 L0,0 Z',
+    'M0,25 C180,55 360,5 540,30 C720,55 900,5 1080,25 C1260,50 1380,15 1440,35 L1440,0 L0,0 Z',
+  ];
+  function mkWave(fill, bg, si) {
+    const d = document.createElement('div');
+    d.className = 'wave-divider';
+    d.style.background = bg;
+    d.innerHTML = '<svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="' + shapes[si % 3] + '" fill="' + fill + '"/></svg>';
+    return d;
+  }
+  const pairs = [
+    ['#stats-section', '#0f1923', '#fff', 0],
+    ['#why-us', '#f0f8ff', '#0f1923', 1],
+    ['#how-it-works', '#0f1923', '#fff', 2],
+    ['#services', '#fff', '#0f1923', 0],
+    ['.cta-break', '#0f1923', '#f0f8ff', 1],
+    ['#faq', '#fff', '#0f1923', 2],
+  ];
+  pairs.forEach(function(p) {
+    var el = document.querySelector(p[0]);
+    if (el) el.insertAdjacentElement('afterend', mkWave(p[1], p[2], p[3]));
+  });
+}
+
+// ── Parallax Background ─────────────────────────
+function initParallax() {
+  if (window.innerWidth < 768) return;
+  const section = document.getElementById('why-us');
+  if (!section) return;
+  const bg = document.createElement('div');
+  bg.className = 'parallax-bg';
+  section.prepend(bg);
+  window.addEventListener('scroll', () => {
+    const rect = section.getBoundingClientRect();
+    bg.style.transform = 'translateY(' + (rect.top * 0.25) + 'px)';
+  }, { passive: true });
+}
+
+// ── Gallery 3D Tilt ──────────────────────────────
+function initTilt() {
+  if (window.innerWidth < 768) return;
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mousemove', e => {
+      const r = item.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      const rX = (0.5 - y) * 12;
+      const rY = (x - 0.5) * 12;
+      item.style.transform = 'perspective(800px) rotateX(' + rX + 'deg) rotateY(' + rY + 'deg) scale(1.03)';
+    });
+    item.addEventListener('mouseleave', () => {
+      item.style.transform = '';
+    });
+  });
+}
+
