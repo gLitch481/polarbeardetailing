@@ -186,7 +186,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .service-card .btn{width:100%;justify-content:center}
 .pricing-note{text-align:center;max-width:640px;margin:40px auto 0;padding:36px 32px;background:linear-gradient(135deg,var(--ice),#fff);border:1px solid var(--ice2);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center}
 .pricing-note p{font-size:1.05rem;color:var(--text);line-height:1.8}
-.cta-break{padding:64px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#1a3a4a 100%);position:relative;overflow:hidden}
+.cta-break{padding:64px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#1a3a4a 100%);position:relative;overflow:hidden;border-radius:40px;margin:0 20px}
 .cta-break::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(77,168,218,.15),transparent 70%)}
 .cta-break-inner{text-align:center;position:relative;z-index:1}
 .cta-break h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:#fff;margin-bottom:12px}
@@ -199,7 +199,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--navy);letter-spacing:3px}
 .ba-label{position:absolute;bottom:20px;padding:8px 20px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);color:#fff;border-radius:50px;font-size:.8rem;font-weight:600;z-index:5;text-transform:uppercase;letter-spacing:.05em}
 .ba-label.before{left:20px}.ba-label.after{right:20px}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:56px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .gallery-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .gallery-item:hover img{transform:scale(1.08)}
