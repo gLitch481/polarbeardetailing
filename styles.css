@@ -186,7 +186,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .service-card .btn{width:100%;justify-content:center}
 .pricing-note{text-align:center;max-width:640px;margin:40px auto 0;padding:36px 32px;background:linear-gradient(135deg,var(--ice),#fff);border:1px solid var(--ice2);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center}
 .pricing-note p{font-size:1.05rem;color:var(--text);line-height:1.8}
-.cta-break{padding:64px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#1a3a4a 100%);position:relative;overflow:hidden;border-radius:40px;margin:0 20px}
+.cta-break{padding:64px 0;background:linear-gradient(180deg,#0f1923 0%,#1a2a3a 50%,#0f1923 100%);position:relative;overflow:hidden}
 .cta-break::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(77,168,218,.15),transparent 70%)}
 .cta-break-inner{text-align:center;position:relative;z-index:1}
 .cta-break h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:#fff;margin-bottom:12px}
