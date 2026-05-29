@@ -110,13 +110,12 @@ const SITE_DATA = {
   // Items with a `before` field will open a before/after comparison slider.
   // Items without `before` just open the image in a regular lightbox.
   gallery: [
-    { before: "images/before1.png", after: "images/after1.png", caption: "Full Exterior Detail" },
-    { before: "images/before-interior.png", after: "images/gallery-interior.png", caption: "Interior Detail" },
-    { before: "images/before-ceramic.png", after: "images/gallery-ceramic.png", caption: "Ceramic Coating" },
-    { before: "images/before-exterior.png", after: "images/hero-car.png", caption: "Exterior Shine" },
-    // Add more:
-    // { before: "images/before2.jpg", after: "images/after2.jpg", caption: "Interior Revival" },
-    // { after: "images/your-photo.jpg", caption: "Description" },
+    { before: "images/before_1.jpg", after: "images/after_1.jpg", caption: "Full Exterior Detail" },
+    { before: "images/before_2.jpg", after: "images/after_2.jpg", caption: "Interior Detail" },
+    { before: "images/before_3.jpg", after: "images/after_3.jpg", caption: "Paint Correction" },
+    { before: "images/before_4.jpg", after: "images/after_4.jpg", caption: "Ceramic Coating" },
+    { before: "images/before_5.jpg", after: "images/after_5.jpg", caption: "Exterior Shine" },
+    { before: "images/before_6.jpg", after: "images/after_6.jpg", caption: "Deep Clean" },
   ],
 
   // ── Reviews ──────────────────────────────────────────────
