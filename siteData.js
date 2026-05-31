@@ -18,7 +18,7 @@ const SITE_DATA = {
     instagramUrl: "https://www.instagram.com/POLAR_BEAR_Detailing",
     facebook: "", // Add Facebook URL if you have one
     tiktok: "",   // Add TikTok URL if you have one
-    logo: "logo/polar-bear-logo.png",
+    logo: "Logo/polar-bear-logo.png",
   },
 
   // ── Hero Section ─────────────────────────────────────────
