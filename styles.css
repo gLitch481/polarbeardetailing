@@ -191,14 +191,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .cta-break-inner{text-align:center;position:relative;z-index:1}
 .cta-break h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;color:#fff;margin-bottom:12px}
 .cta-break p{font-size:1rem;color:var(--glacier-l);margin-bottom:28px}
-.ba-container{max-width:900px;margin:0 auto;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 24px 64px rgba(15,25,35,.15);cursor:ew-resize;touch-action:none;user-select:none}
-.ba-container img{width:100%;display:block}
-.ba-overlay{position:absolute;inset:0;overflow:hidden}
-.ba-overlay img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
-.ba-slider{position:absolute;top:0;bottom:0;width:3px;background:#fff;z-index:10;box-shadow:0 0 20px rgba(0,0,0,.3)}
-.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--navy);letter-spacing:3px}
-.ba-label{position:absolute;bottom:20px;padding:8px 20px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);color:#fff;border-radius:50px;font-size:.8rem;font-weight:600;z-index:5;text-transform:uppercase;letter-spacing:.05em}
-.ba-label.before{left:20px}.ba-label.after{right:20px}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .gallery-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
@@ -227,7 +219,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .area-card{text-align:center;padding:48px 28px;background:#fff;border:1px solid rgba(77,168,218,.08);border-radius:var(--radius);transition:all .5s var(--ease)}
 .area-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(77,168,218,.1)}
 .area-card.primary{border-color:rgba(77,168,218,.08);background:#fff}
-.area-icon{font-size:2.5rem;margin-bottom:16px}
+.area-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--ice),var(--ice2));display:inline-flex;align-items:center;justify-content:center;font-size:2.5rem;transition:all .5s var(--ease)}
 .area-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:8px}
 .area-card p{color:var(--text-l);font-size:.9rem}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
@@ -274,6 +266,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .footer-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;transition:all .4s var(--ease)}
 .footer-social a:hover{background:var(--glacier);border-color:var(--glacier);transform:translateY(-3px)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;text-align:center;color:rgba(255,255,255,.35);font-size:.8rem}
+.footer-privacy{text-align:center;padding-top:12px;font-size:.75rem}
+.footer-privacy a{color:rgba(255,255,255,.35);transition:color .3s}
+.footer-privacy a:hover{color:var(--glacier-l)}
 .lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center}
 .lightbox.active{display:flex}
 .lightbox #lightbox-img{max-width:90vw;max-height:85vh;border-radius:12px}
@@ -288,7 +283,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
 .ba-lb-label{position:absolute;bottom:20px;padding:8px 20px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);color:#fff;border-radius:50px;font-size:.8rem;font-weight:600;z-index:5;text-transform:uppercase;letter-spacing:.05em}
 .ba-lb-before-label{left:20px}.ba-lb-after-label{right:20px}
 .ba-badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,var(--glacier),var(--glacier-d));color:#fff;border-radius:50px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.gallery-item .overlay{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}
 @media(max-width:1024px){.split-section{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-logo{font-size:1.2rem;gap:10px}.nav-logo img{height:46px;width:46px}.section{padding:56px 0}.services-grid{grid-template-columns:1fr}.areas-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.review-card{flex:0 0 300px}.form-row{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}.stat-number{font-size:2.5rem}.why-grid{grid-template-columns:1fr}.hero-trust{flex-direction:column;align-items:center;gap:8px}.trust-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}.btn{padding:14px 24px;font-size:.9rem}.btn-lg{padding:16px 32px;font-size:1rem}.stat-number{font-size:2rem}}
@@ -354,7 +348,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
   font-size: 0.92rem;
 }
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 500px;
   padding-bottom: 24px;
 }
 .faq-item.active .faq-toggle {
@@ -375,11 +369,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
   color: var(--text-l);
 }
 
-/* Inline Before/After Container Adjustments */
-.ba-featured-wrapper {
-  max-width: 900px;
-  margin: 0 auto 56px;
-}
+
 
 /* Service option cards in booking form */
 .form-services-cards {
@@ -632,16 +622,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cur
   background: radial-gradient(circle, rgba(77,168,218,0.08) 0%, transparent 60%);
   transform: scale(1.2);
 }
-.area-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--ice), var(--ice2));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s var(--ease);
-}
+/* area-icon styling already defined above */
 .area-card:hover .area-icon {
   background: linear-gradient(135deg, var(--glacier-l), var(--glacier));
   transform: scale(1.1) rotate(5deg);

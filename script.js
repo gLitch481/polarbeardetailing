@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     D.faq.forEach((item, i) => {
       faqList.innerHTML += `
         <div class="faq-item" data-reveal style="transition-delay:${i*.08}s">
-          <button class="faq-question">
+          <button class="faq-question" aria-expanded="false">
             <span>${item.q}</span>
             <span class="faq-toggle">+</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" role="region">
             <p>${item.a}</p>
           </div>
         </div>
@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!btn) return;
       const item = btn.parentElement;
       const isActive = item.classList.contains('active');
-      faqList.querySelectorAll('.faq-item').forEach(x => x.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
+      faqList.querySelectorAll('.faq-item').forEach(x => { x.classList.remove('active'); x.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+      if (!isActive) { item.classList.add('active'); btn.setAttribute('aria-expanded','true'); }
     });
   }
   // Contact
@@ -122,13 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const fsList = document.getElementById('footer-services');
   D.services.forEach(s => fsList.innerHTML += `<li><a href="#services">${s.name}</a></li>`);
   const fSocial = document.getElementById('footer-social');
-  if (D.business.instagramUrl) fSocial.innerHTML += `<a href="${D.business.instagramUrl}" target="_blank">📸</a>`;
-  fSocial.innerHTML += `<a href="tel:${D.business.phone}">📞</a>`;
+  if (D.business.instagramUrl) fSocial.innerHTML += `<a href="${D.business.instagramUrl}" target="_blank" aria-label="Instagram">📸</a>`;
+  fSocial.innerHTML += `<a href="tel:${D.business.phone}" aria-label="Call us">📞</a>`;
   // Floating CTA
   document.getElementById('float-call').href = `tel:${D.business.phone}`;
   document.getElementById('float-insta').href = D.business.instagramUrl;
   // Init
-  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating(); initInlineSlider(); initSplash(); initScrollProgress(); initWaves(); initParallax(); initTilt();
+  initReveal(); initNav(); initParticles(); initLightbox(); initStats(); initFloating(); initSplash(); initScrollProgress(); initWaves(); initParallax(); initTilt();
 });
 
 function initLightbox() {
@@ -253,35 +253,7 @@ function initParticles() {
   })();
 }
 
-function initInlineSlider() {
-  const baC = document.getElementById('inline-ba');
-  if (!baC) return;
-  const baOverlay = document.getElementById('inline-ba-overlay');
-  const baSlider = document.getElementById('inline-ba-slider');
-  let drag = false;
 
-  function setSlider(x) {
-    const r = baC.getBoundingClientRect();
-    let p = ((x - r.left) / r.width) * 100;
-    p = Math.max(2, Math.min(98, p));
-    baOverlay.style.width = p + '%';
-    baSlider.style.left = p + '%';
-  }
-
-  baSlider.addEventListener('mousedown', () => drag = true);
-  baSlider.addEventListener('touchstart', () => drag = true);
-  document.addEventListener('mouseup', () => drag = false);
-  document.addEventListener('touchend', () => drag = false);
-  baC.addEventListener('mousemove', e => { if (drag) setSlider(e.clientX); });
-  baC.addEventListener('touchmove', e => { if (drag) setSlider(e.touches[0].clientX); });
-  baC.addEventListener('click', e => { if (e.target.closest('#inline-ba-slider')) return; setSlider(e.clientX); });
-
-  // Reset to 50% on load after client rect is ready
-  setTimeout(() => {
-    const r = baC.getBoundingClientRect();
-    setSlider(r.left + r.width * 0.5);
-  }, 100);
-}
 
 // ── Splash Screen ────────────────────────────────
 function initSplash() {

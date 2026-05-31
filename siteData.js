@@ -18,7 +18,7 @@ const SITE_DATA = {
     instagramUrl: "https://www.instagram.com/POLAR_BEAR_Detailing",
     facebook: "", // Add Facebook URL if you have one
     tiktok: "",   // Add TikTok URL if you have one
-    logo: "Logo/photo_2026-04-29_18-53-47 (1).png",
+    logo: "logo/polar-bear-logo.png",
   },
 
   // ── Hero Section ─────────────────────────────────────────
@@ -144,8 +144,6 @@ const SITE_DATA = {
       stars: 5,
       text: "As a busy mom, I love that they come to me. My minivan went from chaos to showroom-clean. The kids couldn't believe it was the same car! Amazing service.",
     },
-    // Add more reviews:
-    // { name: "Name", location: "City", stars: 5, text: "Review text..." },
   ],
 
   // ── Service Areas ────────────────────────────────────────

@@ -28,16 +28,21 @@
   <!-- Theme Color (browser address bar) -->
   <meta name="theme-color" content="#0f1923">
 
+  <!-- Canonical & Manifest -->
+  <link rel="canonical" href="https://glitch481.github.io/polarbeardetailing/">
+  <link rel="manifest" href="manifest.json">
+
   <link rel="stylesheet" href="styles.css">
   <script src="siteData.js" defer></script>
   <script src="script.js" defer></script>
+  <noscript><style>.splash-screen{display:none}</style><p style="text-align:center;padding:40px;font-size:1.2rem">Please enable JavaScript to view this website.</p></noscript>
 </head>
 <body>
 
   <!-- SPLASH SCREEN -->
   <div class="splash-screen" id="splash-screen">
     <div class="splash-content">
-      <img src="Logo/photo_2026-04-29_18-53-47 (1).png" alt="Polar Bear Detailing" class="splash-logo-img">
+      <img src="logo/polar-bear-logo.png" alt="Polar Bear Detailing" class="splash-logo-img">
       <div class="splash-name">Polar Bear Detailing</div>
       <div class="splash-bar"><div class="splash-bar-fill"></div></div>
     </div>
@@ -61,24 +66,25 @@
     </div>
   </nav>
 
-  <div class="mobile-menu" id="mobile-menu">
+  <nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
     <a href="#services">Services</a><a href="#gallery">Results</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
-  </div>
+  </nav>
 
   <!-- HERO — fullscreen with background image -->
   <section class="hero" id="hero">
     <video class="hero-bg" id="hero-bg" autoplay muted loop playsinline>
       <source src="images/hero-video.mp4" type="video/mp4">
+      Your browser does not support the video element.
     </video>
     <div class="hero-overlay"></div>
-    <canvas class="hero-particles" id="particles-canvas"></canvas>
+    <canvas class="hero-particles" id="particles-canvas" role="presentation" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <div class="hero-badge">❄️ Marlboro & Old Bridge's Premier Detailing</div>
       <h1>Your Car Deserves<br><em>Arctic-Clean</em> Perfection</h1>
       <p class="hero-sub">We bring showroom-quality detailing to your doorstep. Premium products. Meticulous care. Stunning results — every time.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary btn-lg">Get a Free Quote</a>
-        <a href="" class="btn btn-glass" id="hero-call">📞 Call Now</a>
+        <a href="#contact" class="btn btn-glass" id="hero-call">📞 Call Now</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-item">✓ Fully Insured</div>
@@ -89,6 +95,7 @@
     <div class="hero-scroll"><span>Scroll to explore</span><div class="scroll-line"></div></div>
   </section>
 
+  <main>
   <!-- STATS BAR -->
   <section class="stats" id="stats-section">
     <div class="container"><div class="stats-grid" id="stats-grid"></div></div>
@@ -236,6 +243,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <div class="footer-aurora"></div>
   <footer class="footer">
@@ -250,19 +259,19 @@
         <div><h4>Services</h4><ul class="footer-links" id="footer-services"></ul></div>
       </div>
       <div class="footer-bottom" id="footer-bottom"></div>
-      <div style="text-align:center;padding-top:12px;font-size:.75rem"><a href="privacy.html" style="color:rgba(255,255,255,.35);transition:color .3s" onmouseover="this.style.color='var(--glacier-l)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Privacy Policy</a></div>
+      <div class="footer-privacy"><a href="privacy.html">Privacy Policy</a></div>
     </div>
   </footer>
 
   <!-- FLOATING CTA -->
   <div class="floating-cta" id="floating-cta">
-    <a href="tel:" id="float-call" class="float-btn float-phone">📞</a>
-    <a href="" target="_blank" id="float-insta" class="float-btn float-insta">📸</a>
+    <a href="tel:" id="float-call" class="float-btn float-phone" aria-label="Call us">📞</a>
+    <a href="" target="_blank" id="float-insta" class="float-btn float-insta" aria-label="Follow us on Instagram">📸</a>
   </div>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
     <img id="lightbox-img" src="" alt="">
     <div class="ba-lightbox-container" id="ba-lightbox">
       <img class="ba-lb-after" id="ba-lb-after" src="" alt="After">
