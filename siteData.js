@@ -25,9 +25,8 @@ const SITE_DATA = {
   hero: {
     title: "Premium Mobile Detailing",
     subtitle: "Arctic-Clean Results, At Your Door",
-    description: "Professional mobile auto detailing serving Sayreville, Old Bridge, Marlboro & surrounding areas in NJ. We bring the shine to you.",
+    description: "Professional mobile auto detailing serving Marlboro, Old Bridge & surrounding areas in NJ. We bring the shine to you.",
     ctaText: "Schedule a Visit",
-    heroImage: "images/hero-car.png",
   },
 
   // ── Trust Badges ─────────────────────────────────────────
@@ -135,13 +134,13 @@ const SITE_DATA = {
     },
     {
       name: "David L.",
-      location: "East Brunswick, NJ",
+      location: "Old Bridge, NJ",
       stars: 5,
       text: "Got the ceramic coating done and wow — my car literally repels water now. The team was on time, explained everything, and the results speak for themselves. 10/10.",
     },
     {
       name: "Jennifer M.",
-      location: "Holmdel, NJ",
+      location: "Morganville, NJ",
       stars: 5,
       text: "As a busy mom, I love that they come to me. My minivan went from chaos to showroom-clean. The kids couldn't believe it was the same car! Amazing service.",
     },
@@ -152,8 +151,8 @@ const SITE_DATA = {
   // ── Service Areas ────────────────────────────────────────
   serviceAreas: [
     { area: "Marlboro & Old Bridge", detail: "Marlboro, Morganville, Old Bridge & nearby", primary: true },
-    { area: "Bayshore Area", detail: "Matawan, Aberdeen, Holmdel, Hazlet & nearby" },
-    { area: "Middlesex Route", detail: "Sayreville, Parlin, East Brunswick & nearby" },
+    { area: "Along the Route", detail: "Sayreville, Parlin, South Amboy & nearby" },
+    { area: "Nearby Areas", detail: "Perth Amboy, Carteret, Woodbridge & nearby" },
   ],
 
   // ── FAQ ──────────────────────────────────────────────────
@@ -177,7 +176,7 @@ const SITE_DATA = {
   ],
 
   // ── SEO Content ──────────────────────────────────────────
-  seoText: "Looking for the best mobile auto detailing in Marlboro, Old Bridge, or Sayreville, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Sayreville, East Brunswick, Old Bridge, Matawan, Holmdel, Morganville, or Marlboro, we make car care effortless. Contact us today for a free estimate!",
+  seoText: "Looking for the best mobile auto detailing in Marlboro, Old Bridge, or Sayreville, NJ? Polar Bear Detailing is your local go-to professional service. We specialize in bringing showroom-quality exterior washes, paint protection, and deep interior cleaning right to your driveway. Whether you are in Sayreville, South Amboy, Perth Amboy, Parlin, Old Bridge, Morganville, or Marlboro — we make car care effortless. Contact us today for a free estimate!",
 
   // ── Footer ───────────────────────────────────────────────
   footer: {
