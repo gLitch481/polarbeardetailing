@@ -34,11 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   // Reviews
   const rTrack = document.getElementById('reviews-track');
-  D.reviews.forEach(r => {
-    const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
-    const init = r.name.split(' ').map(w => w[0]).join('');
-    rTrack.innerHTML += `<div class="review-card"><div class="review-stars">${stars}</div><p class="review-text">${r.text}</p><div class="review-author"><div class="review-avatar">${init}</div><div><div class="review-name">${r.name}</div><div class="review-location">${r.location}</div></div></div></div>`;
-  });
+  if (D.reviews.length === 0) {
+    rTrack.innerHTML = `<div class="review-card" style="flex:1;text-align:center;padding:48px 28px"><div style="font-size:2.5rem;margin-bottom:16px">⭐</div><p class="review-text" style="font-size:1.1rem;color:var(--text-l)">We're just getting started! Real customer reviews will appear here soon.</p><a href="#contact" class="btn btn-primary btn-sm" style="margin-top:20px">Be Our First Review →</a></div>`;
+  } else {
+    D.reviews.forEach(r => {
+      const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+      const init = r.name.split(' ').map(w => w[0]).join('');
+      rTrack.innerHTML += `<div class="review-card"><div class="review-stars">${stars}</div><p class="review-text">${r.text}</p><div class="review-author"><div class="review-avatar">${init}</div><div><div class="review-name">${r.name}</div><div class="review-location">${r.location}</div></div></div></div>`;
+    });
+  }
   initCarousel();
   // Areas
   const aGrid = document.getElementById('areas-grid');

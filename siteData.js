@@ -31,7 +31,7 @@ const SITE_DATA = {
 
   // ── Trust Badges ─────────────────────────────────────────
   trustBadges: [
-    { icon: "✓", text: "Fully Insured", desc: "Fully insured for your peace of mind" },
+    { icon: "✓", text: "Premium Products", desc: "Top-tier pH-neutral products for your car" },
     { icon: "🌿", text: "Eco-Friendly", desc: "Premium pH-neutral & eco-safe products" },
     { icon: "⚡", text: "Express Service", desc: "Same-day availability when possible" },
     { icon: "⭐", text: "5-Star Service", desc: "Consistent 5-star rated results" },
@@ -49,7 +49,7 @@ const SITE_DATA = {
   whyUs: [
     { icon: "🏠", title: "We Come to You", desc: "No need to drive anywhere. We bring our professional-grade equipment right to your home, office, or anywhere you need us." },
     { icon: "💎", title: "Premium Products Only", desc: "We use only top-tier, pH-neutral, and eco-friendly products that protect your paint while delivering a showroom finish." },
-    { icon: "🔒", title: "Fully Insured", desc: "Your vehicle is in safe hands. We're fully insured and trained to handle everything from daily drivers to luxury cars." },
+    { icon: "📱", title: "Easy Booking", desc: "Just text, call, or DM us on Instagram. We'll confirm your appointment within minutes and show up right on time." },
     { icon: "⚡", title: "Same-Day Available", desc: "Need it done today? We offer same-day appointments when available. Text us and we'll get you on the schedule." },
   ],
 
@@ -119,32 +119,7 @@ const SITE_DATA = {
 
   // ── Reviews ──────────────────────────────────────────────
   // Add real reviews here — they'll show in the carousel
-  reviews: [
-    {
-      name: "Michael R.",
-      location: "Marlboro, NJ",
-      stars: 5,
-      text: "Incredible job on my BMW! The paint looks better than when I bought it. Super convenient that they come right to my driveway. Will definitely be a regular customer.",
-    },
-    {
-      name: "Sarah K.",
-      location: "Old Bridge, NJ",
-      stars: 5,
-      text: "I've tried several detailers in the area and Polar Bear is by far the best. They're thorough, professional, and my interior has never looked this clean. Highly recommend!",
-    },
-    {
-      name: "David L.",
-      location: "Old Bridge, NJ",
-      stars: 5,
-      text: "Got the ceramic coating done and wow — my car literally repels water now. The team was on time, explained everything, and the results speak for themselves. 10/10.",
-    },
-    {
-      name: "Jennifer M.",
-      location: "Morganville, NJ",
-      stars: 5,
-      text: "As a busy mom, I love that they come to me. My minivan went from chaos to showroom-clean. The kids couldn't believe it was the same car! Amazing service.",
-    },
-  ],
+  reviews: [],
 
   // ── Service Areas ────────────────────────────────────────
   serviceAreas: [
